@@ -1,6 +1,13 @@
 package online.babylove.www.example2;
 
-
+/**
+ * 舞台
+ * 舞台也是一个线程，在舞台线程中创建 隋唐军线程 和 农民起义军线程 并启动他们
+ * 我们可以看到 隋唐军 和 农民起义军 并不是有规律的你一刀我一刀
+ * 因为@ArmyRunnable每次发起攻击后都调用了yield()方法来释放处理器资源，让2个军队重新去抢占线程
+ * @author zhangjiawei
+ *
+ */
 public class Stage extends Thread{
 
 	@Override
@@ -27,11 +34,6 @@ public class Stage extends Thread{
 		dynastyArmyRunnable.isKeepRunning = false;
 		revoltArmyRunnable.isKeepRunning = false;
 		
-		try {
-			revoltArmyThread.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public static void main(String[] args) {
