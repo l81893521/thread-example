@@ -1,5 +1,6 @@
 package online.babylove.www.example3;
 
+
 /**
  * 军队
  * 军队存在2种角色（隋唐军和农民军）
@@ -20,6 +21,6 @@ public class ArmyRunnable implements Runnable{
 				Thread.yield();
 			}
 		}
-		System.out.println("正式收兵！！！！");
+		System.out.println(Thread.currentThread().getName() + "结束了战斗!");
 	}
 }
